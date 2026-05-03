@@ -8,263 +8,317 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">zen0x</div>
-            <div class="nav-links" id="nav-links">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#work" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="docs/Game Dev.pdf" download class="resume-button">Resume</a>
+    <div class="terminal-frame">
+
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="tb-dots">
+                <span class="tb-dot"></span>
+                <span class="tb-dot"></span>
+                <span class="tb-dot"></span>
+            </div>
+            <div class="tb-title">zen0x@portfolio:~</div>
+            <div class="tb-actions">
+                <a href="docs/Game Dev.pdf" download class="tb-resume">./resume.pdf</a>
             </div>
         </div>
-    </nav>
 
-    <main id="content">
-        <!-- Home/Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-background">
-                <div class="hero-glow hero-glow-1"></div>
-                <div class="hero-glow hero-glow-2"></div>
-            </div>
-            <div class="hero-content">
-                <div class="hero-badge">Welcome to my portfolio</div>
-                <h1 class="hero-title">Aman Kumar Matta</h1>
-                <h2 class="hero-subtitle">Unity Developer & Game Enthusiast</h2>
-                <p class="tagline">Crafting immersive gaming experiences with cutting-edge technology and creative innovation</p>
-                <div class="hero-cta">
-                    <a href="#work" class="cta-button primary">Explore My Work</a>
-                    <a href="#contact" class="cta-button secondary">Get in Touch</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">2+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">XR Platforms</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Main Layout -->
+        <div class="layout">
 
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="section-content">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <div class="card-accent"></div>
-                        <div class="about-content">
-                            <h3>Who I Am</h3>
-                            <p>I'm a passionate Unity Developer with expertise in creating immersive gaming experiences. With a strong foundation in game development and a keen eye for detail, I specialize in building engaging and interactive games that captivate players.</p>
-                        </div>
-                    </div>
-                    <div class="about-card">
-                        <div class="card-accent"></div>
-                        <div class="about-content">
-                            <h3>My Journey</h3>
-                            <p>My passion for creating virtual worlds sparked a professional career focused on delivering high-quality gaming experiences. From XR development to multiplayer systems, I've worked across diverse platforms and technologies to bring innovative game concepts to life.</p>
-                        </div>
-                    </div>
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-brand">
+                    <span class="sb-prompt">> </span><span class="sb-name">zen0x</span>
                 </div>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-number">2+</span>
-                        <span class="highlight-label">Years Experience</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">5+</span>
-                        <span class="highlight-label">Projects Built</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">3</span>
-                        <span class="highlight-label">XR Platforms</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills section">
-            <div class="section-content">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Game Development</h4>
-                        <ul>
-                            <li>Unity Engine</li>
-                            <li>C# Programming</li>
-                            <li>Game Design</li>
-                            <li>Physics & Collision</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Extended Reality</h4>
-                        <ul>
-                            <li>VR Development</li>
-                            <li>AR Development</li>
-                            <li>Meta Quest 2/3</li>
-                            <li>OpenXR</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Programming</h4>
-                        <ul>
-                            <li>C#</li>
-                            <li>Python</li>
-                            <li>Git & Version Control</li>
-                            <li>Networking</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools & Technologies</h4>
-                        <ul>
-                            <li>Photon PUN 2</li>
-                            <li>Visual Studio</li>
-                            <li>Blender</li>
-                            <li>VS Code</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="experience section">
-            <div class="section-content">
-                <h2 class="section-title">Experience</h2>
-                <div class="experience-carousel-wrapper">
-                    <button class="carousel-button exp-prev" id="exp-prev-btn" aria-label="Previous experience">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="25 10 15 20 25 30"></polyline>
-                        </svg>
-                    </button>
-                    <div class="experience-carousel">
-                        <div class="experience-card">
-                            <div class="card-year">04/2025</div>
-                            <div class="card-content">
-                                <h3>Unity XR Developer</h3>
-                                <p class="company">AllReal (Machenn)</p>
-                                <ul class="description-list">
-                                    <li>Developing immersive XR experiences for enterprise and consumer applications</li>
-                                    <li>Optimizing performance for cross-platform XR deployment</li>
-                                </ul>
-                                <div class="card-status">Current</div>
-                            </div>
-                        </div>
-                        <div class="experience-card">
-                            <div class="card-year">10/2024</div>
-                            <div class="card-content">
-                                <h3>Unity 3D Developer</h3>
-                                <p class="company">Brahman Studios</p>
-                                <ul class="description-list">
-                                    <li>Gained hands-on experience in 3D space management within Unity for a cross-platform MMORPG</li>
-                                    <li>Implemented multi input support, enhancing gameplay accessibility across multiple platforms</li>
-                                    <li>Contributed to networking solutions, ensuring smooth cross-platform connectivity</li>
-                                    <li>Responsible for debugging, troubleshooting, and maintaining an existing codebase</li>
-                                </ul>
-                                <div class="duration">6 months</div>
-                            </div>
-                        </div>
-                        <div class="experience-card">
-                            <div class="card-year">01/2024</div>
-                            <div class="card-content">
-                                <h3>Unity XR Developer</h3>
-                                <p class="company">Kaala Labs</p>
-                                <ul class="description-list">
-                                    <li>Developed and optimized immersive VR experiences for Meta Quest 2 and Quest 3</li>
-                                    <li>Implemented AR features leveraging Unity's AR Foundation for cross-platform deployment</li>
-                                    <li>Collaborated with cross-functional teams to design and deploy XR applications</li>
-                                </ul>
-                                <div class="duration">9 months</div>
-                            </div>
-                        </div>
-                        <div class="experience-card">
-                            <div class="card-year">08/2022</div>
-                            <div class="card-content">
-                                <h3>Game Programmer Intern</h3>
-                                <p class="company">Gameshastra Solutions</p>
-                                <ul class="description-list">
-                                    <li>Acquired proficiency in writing optimized code, focusing on performance and scalability</li>
-                                    <li>Utilized scriptable objects to streamline game logic and enhance code maintainability</li>
-                                    <li>Applied Photon Unity Networking (PUN 2) to develop multiplayer functionality</li>
-                                </ul>
-                                <div class="duration">6 months</div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-button exp-next" id="exp-next-btn" aria-label="Next experience">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 10 25 20 15 30"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="work" class="work section">
-            <div class="section-content">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="carousel-container">
-                    <button class="carousel-button carousel-prev" id="prev-btn" aria-label="Previous project">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="25 6 13 18 25 30"></polyline>
-                        </svg>
-                    </button>
-                    <div class="projects-grid" id="projects-container">
-                        <!-- Projects will be loaded dynamically -->
-                    </div>
-                    <button class="carousel-button carousel-next" id="next-btn" aria-label="Next project">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 6 27 18 15 30"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-            <div class="section-content">
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="contact-subtitle">Let's collaborate and create something amazing together</p>
-                <div class="contact-cards">
-                    <a href="mailto:amankumarmatta@gmail.com" class="contact-card">
-                        <div class="contact-icon">📧</div>
-                        <h3>Email</h3>
-                        <p>amankumarmatta@gmail.com</p>
+                <nav class="sidebar-nav">
+                    <div class="snav-label">// navigate</div>
+                    <a href="#home"       class="snav-item active" data-section="home">
+                        <span class="snav-ind">▶</span>home
                     </a>
-                    <a href="https://github.com/amankumarmatta" target="_blank" rel="noopener noreferrer" class="contact-card">
-                        <div class="contact-icon">🔗</div>
-                        <h3>GitHub</h3>
-                        <p>github.com/amankumarmatta</p>
+                    <a href="#about"      class="snav-item" data-section="about">
+                        <span class="snav-ind"> </span>about
                     </a>
-                    <a href="https://linkedin.com/in/amankumarmatta" target="_blank" rel="noopener noreferrer" class="contact-card">
-                        <div class="contact-icon">💼</div>
-                        <h3>LinkedIn</h3>
-                        <p>linkedin.com/in/amankumarmatta</p>
+                    <a href="#skills"     class="snav-item" data-section="skills">
+                        <span class="snav-ind"> </span>skills
                     </a>
+                    <a href="#experience" class="snav-item" data-section="experience">
+                        <span class="snav-ind"> </span>experience
+                    </a>
+                    <a href="#work"       class="snav-item" data-section="work">
+                        <span class="snav-ind"> </span>projects
+                    </a>
+                    <a href="#contact"    class="snav-item" data-section="contact">
+                        <span class="snav-ind"> </span>contact
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <span class="sf-dot"></span>
+                    <span class="sf-text">available for work</span>
                 </div>
-            </div>
-        </section>
-    </main>
+            </aside>
 
-    <footer>
-        <p>&copy; 2025 Aman Kumar Matta. All rights reserved.</p>
-    </footer>
+            <!-- Content -->
+            <main class="content" id="main-content">
+
+                <!-- Home -->
+                <section id="home" class="section">
+                    <div class="cmd-bar">
+                        <span class="cmd-p">$</span>
+                        <span class="cmd-t">whoami</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="hero-layout">
+                            <div class="hero-left">
+                                <p class="hero-overline">// unity developer & game enthusiast</p>
+                                <h1 class="hero-name">Aman<br>Kumar<br>Matta</h1>
+                                <p class="hero-desc">Crafting immersive gaming experiences with cutting-edge technology and creative innovation.</p>
+                                <div class="hero-actions">
+                                    <a href="#work"    class="btn-primary">./explore-work</a>
+                                    <a href="#contact" class="btn-ghost">./contact</a>
+                                </div>
+                            </div>
+                            <div class="hero-right">
+                                <div class="hero-stats">
+                                    <div class="hstat">
+                                        <span class="hstat-n">2+</span>
+                                        <span class="hstat-l">years experience</span>
+                                    </div>
+                                    <div class="hstat">
+                                        <span class="hstat-n">5+</span>
+                                        <span class="hstat-l">projects completed</span>
+                                    </div>
+                                    <div class="hstat">
+                                        <span class="hstat-n">3</span>
+                                        <span class="hstat-l">xr platforms</span>
+                                    </div>
+                                </div>
+                                <div class="term-widget">
+                                    <div class="tw-line"><span class="tw-p">$</span> unity --version</div>
+                                    <div class="tw-out">Unity 6000.x.xxf1</div>
+                                    <div class="tw-line"><span class="tw-p">$</span> platforms --list</div>
+                                    <div class="tw-out">VR · AR · PC · Mobile</div>
+                                    <div class="tw-line"><span class="tw-p">$</span> status</div>
+                                    <div class="tw-out tw-green">● available for hire</div>
+                                    <div class="tw-line"><span class="tw-cursor">█</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About -->
+                <section id="about" class="section">
+                    <div class="cmd-bar">
+                        <span class="cmd-p">$</span>
+                        <span class="cmd-t">cat about.md</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="about-cols">
+                            <div class="about-col">
+                                <h3 class="col-label">// who i am</h3>
+                                <p>I'm a passionate Unity Developer with expertise in creating immersive gaming experiences. With a strong foundation in game development and a keen eye for detail, I specialize in building engaging and interactive games that captivate players.</p>
+                            </div>
+                            <div class="about-col">
+                                <h3 class="col-label">// my journey</h3>
+                                <p>My passion for creating virtual worlds sparked a professional career focused on delivering high-quality gaming experiences. From XR development to multiplayer systems, I've worked across diverse platforms and technologies to bring innovative game concepts to life.</p>
+                            </div>
+                        </div>
+                        <div class="about-stats">
+                            <div class="astat"><span class="astat-n">2+</span><span class="astat-l">years exp</span></div>
+                            <div class="astat"><span class="astat-n">5+</span><span class="astat-l">projects</span></div>
+                            <div class="astat"><span class="astat-n">3</span><span class="astat-l">xr platforms</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section id="skills" class="section">
+                    <div class="cmd-bar">
+                        <span class="cmd-p">$</span>
+                        <span class="cmd-t">cat skills.json</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="skills-grid">
+                            <div class="skill-block">
+                                <div class="skill-key">"game_development"</div>
+                                <ul class="skill-vals">
+                                    <li>Unity Engine</li>
+                                    <li>C# Programming</li>
+                                    <li>Game Design</li>
+                                    <li>Physics & Collision</li>
+                                </ul>
+                            </div>
+                            <div class="skill-block">
+                                <div class="skill-key">"extended_reality"</div>
+                                <ul class="skill-vals">
+                                    <li>VR Development</li>
+                                    <li>AR Development</li>
+                                    <li>Meta Quest 2/3</li>
+                                    <li>OpenXR</li>
+                                </ul>
+                            </div>
+                            <div class="skill-block">
+                                <div class="skill-key">"programming"</div>
+                                <ul class="skill-vals">
+                                    <li>C#</li>
+                                    <li>Python</li>
+                                    <li>Git & Version Control</li>
+                                    <li>Networking</li>
+                                </ul>
+                            </div>
+                            <div class="skill-block">
+                                <div class="skill-key">"tools"</div>
+                                <ul class="skill-vals">
+                                    <li>Photon PUN 2</li>
+                                    <li>Visual Studio</li>
+                                    <li>Blender</li>
+                                    <li>VS Code</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section id="experience" class="section">
+                    <div class="cmd-bar">
+                        <span class="cmd-p">$</span>
+                        <span class="cmd-t">cat experience.log</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="exp-list">
+                            <div class="exp-entry">
+                                <div class="exp-meta">
+                                    <span class="exp-date">04/2025</span>
+                                    <span class="exp-tag current">● current</span>
+                                </div>
+                                <div class="exp-body">
+                                    <h3>Unity XR Developer</h3>
+                                    <p class="exp-co">AllReal (Machenn)</p>
+                                    <ul class="exp-points">
+                                        <li>Developing immersive XR experiences for enterprise and consumer applications</li>
+                                        <li>Optimizing performance for cross-platform XR deployment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="exp-entry">
+                                <div class="exp-meta">
+                                    <span class="exp-date">10/2024</span>
+                                    <span class="exp-dur">6 months</span>
+                                </div>
+                                <div class="exp-body">
+                                    <h3>Unity 3D Developer</h3>
+                                    <p class="exp-co">Brahman Studios</p>
+                                    <ul class="exp-points">
+                                        <li>Gained hands-on experience in 3D space management within Unity for a cross-platform MMORPG</li>
+                                        <li>Implemented multi input support, enhancing gameplay accessibility across multiple platforms</li>
+                                        <li>Contributed to networking solutions, ensuring smooth cross-platform connectivity</li>
+                                        <li>Responsible for debugging, troubleshooting, and maintaining an existing codebase</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="exp-entry">
+                                <div class="exp-meta">
+                                    <span class="exp-date">01/2024</span>
+                                    <span class="exp-dur">9 months</span>
+                                </div>
+                                <div class="exp-body">
+                                    <h3>Unity XR Developer</h3>
+                                    <p class="exp-co">Kaala Labs</p>
+                                    <ul class="exp-points">
+                                        <li>Developed and optimized immersive VR experiences for Meta Quest 2 and Quest 3</li>
+                                        <li>Implemented AR features leveraging Unity's AR Foundation for cross-platform deployment</li>
+                                        <li>Collaborated with cross-functional teams to design and deploy XR applications</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="exp-entry">
+                                <div class="exp-meta">
+                                    <span class="exp-date">08/2022</span>
+                                    <span class="exp-dur">6 months</span>
+                                </div>
+                                <div class="exp-body">
+                                    <h3>Game Programmer Intern</h3>
+                                    <p class="exp-co">Gameshastra Solutions</p>
+                                    <ul class="exp-points">
+                                        <li>Acquired proficiency in writing optimized code, focusing on performance and scalability</li>
+                                        <li>Utilized scriptable objects to streamline game logic and enhance code maintainability</li>
+                                        <li>Applied Photon Unity Networking (PUN 2) to develop multiplayer functionality</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects -->
+                <section id="work" class="section">
+                    <div class="cmd-bar">
+                        <span class="cmd-p">$</span>
+                        <span class="cmd-t">ls -la projects/</span>
+                    </div>
+                    <div class="section-body">
+                        <div class="projects-grid" id="projects-container"></div>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section id="contact" class="section">
+                    <div class="cmd-bar">
+                        <span class="cmd-p">$</span>
+                        <span class="cmd-t">cat contact.txt</span>
+                    </div>
+                    <div class="section-body">
+                        <p class="contact-sub">let's collaborate and build something great</p>
+                        <div class="contact-list">
+                            <a href="mailto:amankumarmatta@gmail.com" class="contact-row">
+                                <span class="cr-icon">📧</span>
+                                <span class="cr-label">email</span>
+                                <span class="cr-val">amankumarmatta@gmail.com</span>
+                                <span class="cr-arrow">→</span>
+                            </a>
+                            <a href="https://github.com/amankumarmatta" target="_blank" rel="noopener noreferrer" class="contact-row">
+                                <span class="cr-icon">🔗</span>
+                                <span class="cr-label">github</span>
+                                <span class="cr-val">github.com/amankumarmatta</span>
+                                <span class="cr-arrow">→</span>
+                            </a>
+                            <a href="https://linkedin.com/in/amankumarmatta" target="_blank" rel="noopener noreferrer" class="contact-row">
+                                <span class="cr-icon">💼</span>
+                                <span class="cr-label">linkedin</span>
+                                <span class="cr-val">linkedin.com/in/amankumarmatta</span>
+                                <span class="cr-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="sb-left">
+                <span class="sb-section" id="sb-section">~/home</span>
+            </div>
+            <div class="sb-center">zen0x.dev</div>
+            <div class="sb-right">
+                <span class="sb-avail">● available</span>
+                <span class="sb-year">2025</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mobile sidebar toggle -->
+    <button class="mob-btn" id="mob-btn" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="mob-overlay" id="mob-overlay"></div>
 
     <script src="script.js"></script>
 </body>
