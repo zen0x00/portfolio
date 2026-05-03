@@ -189,11 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active nav link on scroll
     function updateNav() {
-        const scrollY = window.scrollY + 80;
+        const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+        const scrollY  = window.scrollY + 100;
+        const sections = document.querySelectorAll('main section[id]');
+
         let current = '';
-        document.querySelectorAll('section[id], main section[id]').forEach(sec => {
-            if (scrollY >= sec.offsetTop) current = sec.id;
-        });
+        if (atBottom) {
+            current = sections[sections.length - 1].id;
+        } else {
+            sections.forEach(sec => {
+                if (scrollY >= sec.offsetTop) current = sec.id;
+            });
+        }
+
         navAnchors.forEach(a => {
             const href = a.getAttribute('href').slice(1);
             a.classList.toggle('active', href === current);
