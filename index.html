@@ -3,213 +3,406 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Kumar Matta — Unity Developer</title>
-    <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png?v=2">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Aman Kumar Matta</title>
+    <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Georgia, serif;
+            background: #fff;
+            color: #000;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        a { color: #000; }
+        a:hover { text-decoration: none; }
+
+        hr {
+            border: none;
+            border-top: 1px solid #000;
+            margin: 32px 0;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 48px;
+        }
+
+        .nav-name {
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            text-decoration: none;
+            margin-left: 16px;
+        }
+
+        /* Hero */
+        .hero { margin-bottom: 48px; }
+
+        .hero-tag {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+        }
+
+        .stat span {
+            display: block;
+        }
+
+        .stat-n {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .stat-l {
+            font-size: 12px;
+        }
+
+        /* Sections */
+        h2 {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .section-sub {
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        /* Projects */
+        .project { margin-bottom: 28px; }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .project-links a {
+            font-size: 13px;
+            margin-right: 12px;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+        }
+
+        /* About */
+        .about-p { font-size: 14px; margin-bottom: 12px; }
+
+        .skills { margin-top: 20px; }
+
+        .skill-group { margin-bottom: 16px; }
+
+        .skill-group h4 {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skill-group ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-group li {
+            font-size: 13px;
+        }
+
+        .skill-group li::after { content: ' ·'; }
+        .skill-group li:last-child::after { content: ''; }
+
+        /* Experience */
+        .exp { margin-bottom: 24px; }
+
+        .exp-meta {
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .exp-role {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .exp ul {
+            list-style: disc;
+            padding-left: 18px;
+        }
+
+        .exp li { font-size: 13px; margin-bottom: 2px; }
+
+        /* Contact */
+        .contact h2 { font-size: 28px; margin-bottom: 12px; }
+        .contact p { font-size: 14px; margin-bottom: 20px; }
+
+        .contact-email {
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .contact-socials a {
+            font-size: 14px;
+            margin-right: 16px;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+        }
+
+        .resume-link {
+            display: inline-block;
+            font-size: 14px;
+            border: 1px solid #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            margin-top: 16px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 48px;
+            font-size: 12px;
+            padding-top: 16px;
+            border-top: 1px solid #000;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-inner">
-            <a href="#home" class="nav-logo">zen0x</a>
-            <div class="nav-links" id="nav-links">
-                <a href="#work"       class="nav-link">Work</a>
-                <a href="#about"      class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact"    class="nav-link">Contact</a>
-                <a href="docs/Game Dev.pdf" download class="nav-resume">Resume ↗</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
+    <nav>
+        <a href="#" class="nav-name">zen0x</a>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <main>
-
-        <!-- Hero -->
-        <section id="home" class="hero">
-            <div class="hero-inner">
-                <div class="hero-body">
-                    <p class="hero-eyebrow">Unity Developer &amp; Game Enthusiast</p>
-                    <h1 class="hero-name">Aman Kumar<br>Matta.</h1>
-                    <p class="hero-desc">Crafting immersive gaming experiences across VR, AR, and PC — focused on performance, player experience, and bringing bold ideas to life.</p>
-                    <div class="hero-cta">
-                        <a href="#work"    class="btn-primary">View My Work</a>
-                        <a href="#contact" class="btn-ghost">Get in Touch</a>
-                    </div>
-                </div>
-                <div class="hero-stats">
-                    <div class="hstat">
-                        <span class="hstat-n">2+</span>
-                        <span class="hstat-l">Years Experience</span>
-                    </div>
-                    <div class="hstat-sep"></div>
-                    <div class="hstat">
-                        <span class="hstat-n">5+</span>
-                        <span class="hstat-l">Projects Shipped</span>
-                    </div>
-                    <div class="hstat-sep"></div>
-                    <div class="hstat">
-                        <span class="hstat-n">3</span>
-                        <span class="hstat-l">XR Platforms</span>
-                    </div>
-                </div>
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-tag">Unity Developer &amp; Game Enthusiast</p>
+        <h1>Aman Kumar Matta.</h1>
+        <p>Crafting immersive gaming experiences across VR, AR, and PC — focused on performance, player experience, and bringing bold ideas to life.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-n">2+</span>
+                <span class="stat-l">Years Exp.</span>
             </div>
-        </section>
-
-        <!-- Work -->
-        <section id="work" class="section">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title">Selected Work</h2>
-                    <p class="section-sub">Games &amp; interactive experiences built with Unity</p>
-                </div>
-                <div id="projects-container"></div>
+            <div class="stat">
+                <span class="stat-n">5+</span>
+                <span class="stat-l">Projects</span>
             </div>
-        </section>
-
-        <!-- About -->
-        <section id="about" class="section section--alt">
-            <div class="section-inner">
-                <div class="about-grid">
-                    <div class="about-left">
-                        <h2 class="section-title">About Me</h2>
-                        <p class="about-p">I'm a passionate Unity Developer with expertise in creating immersive gaming experiences. With a strong foundation in game development and a keen eye for detail, I specialize in building engaging and interactive games that captivate players.</p>
-                        <p class="about-p">My passion for creating virtual worlds sparked a professional career focused on delivering high-quality gaming experiences. From XR development to multiplayer systems, I've worked across diverse platforms to bring innovative game concepts to life.</p>
-                    </div>
-                    <div class="about-right">
-                        <div class="skill-group">
-                            <h4 class="skill-group-title">Game Development</h4>
-                            <ul class="skill-list">
-                                <li>Unity Engine</li>
-                                <li>C# Programming</li>
-                                <li>Game Design</li>
-                                <li>Physics &amp; Collision</li>
-                            </ul>
-                        </div>
-                        <div class="skill-group">
-                            <h4 class="skill-group-title">Extended Reality</h4>
-                            <ul class="skill-list">
-                                <li>VR Development</li>
-                                <li>AR Development</li>
-                                <li>Meta Quest 2 / 3</li>
-                                <li>OpenXR</li>
-                            </ul>
-                        </div>
-                        <div class="skill-group">
-                            <h4 class="skill-group-title">Tools &amp; Tech</h4>
-                            <ul class="skill-list">
-                                <li>Photon PUN 2</li>
-                                <li>Python · Git</li>
-                                <li>Blender</li>
-                                <li>Visual Studio · VS Code</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat">
+                <span class="stat-n">3</span>
+                <span class="stat-l">XR Platforms</span>
             </div>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience" class="section">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title">Experience</h2>
-                </div>
-                <div class="exp-list">
-                    <div class="exp-row">
-                        <div class="exp-left">
-                            <span class="exp-date">Apr 2025 — Present</span>
-                            <span class="exp-badge">Current</span>
-                        </div>
-                        <div class="exp-right">
-                            <h3 class="exp-role">Unity XR Developer</h3>
-                            <p class="exp-company">AllReal (Machenn)</p>
-                            <ul class="exp-pts">
-                                <li>Developing immersive XR experiences for enterprise and consumer applications</li>
-                                <li>Optimizing performance for cross-platform XR deployment</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="exp-row">
-                        <div class="exp-left">
-                            <span class="exp-date">Oct 2024 — Apr 2025</span>
-                            <span class="exp-dur">6 months</span>
-                        </div>
-                        <div class="exp-right">
-                            <h3 class="exp-role">Unity 3D Developer</h3>
-                            <p class="exp-company">Brahman Studios</p>
-                            <ul class="exp-pts">
-                                <li>3D space management within Unity for a cross-platform MMORPG</li>
-                                <li>Implemented multi-input support enhancing accessibility across platforms</li>
-                                <li>Contributed to networking solutions for smooth cross-platform connectivity</li>
-                                <li>Debugging, troubleshooting, and maintaining an existing codebase</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="exp-row">
-                        <div class="exp-left">
-                            <span class="exp-date">Jan 2024 — Oct 2024</span>
-                            <span class="exp-dur">9 months</span>
-                        </div>
-                        <div class="exp-right">
-                            <h3 class="exp-role">Unity XR Developer</h3>
-                            <p class="exp-company">Kaala Labs</p>
-                            <ul class="exp-pts">
-                                <li>Developed and optimized immersive VR experiences for Meta Quest 2 and Quest 3</li>
-                                <li>Implemented AR features using Unity's AR Foundation for cross-platform deployment</li>
-                                <li>Collaborated with cross-functional teams to design and deploy XR applications</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="exp-row">
-                        <div class="exp-left">
-                            <span class="exp-date">Aug 2022 — Feb 2023</span>
-                            <span class="exp-dur">6 months</span>
-                        </div>
-                        <div class="exp-right">
-                            <h3 class="exp-role">Game Programmer Intern</h3>
-                            <p class="exp-company">Gameshastra Solutions</p>
-                            <ul class="exp-pts">
-                                <li>Proficiency in writing optimized code focusing on performance and scalability</li>
-                                <li>Used scriptable objects to streamline game logic and maintainability</li>
-                                <li>Applied Photon Unity Networking (PUN 2) for multiplayer functionality</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="section section--alt">
-            <div class="section-inner contact-inner">
-                <h2 class="contact-title">Let's build<br>something great.</h2>
-                <p class="contact-sub">Available for full-time roles and freelance projects. Open to XR, game dev, and interactive experiences.</p>
-                <a href="mailto:amankumarmatta@gmail.com" class="btn-primary btn-large">Say Hello →</a>
-                <div class="contact-links">
-                    <a href="https://github.com/amankumarmatta" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <span class="contact-sep">·</span>
-                    <a href="https://linkedin.com/in/amankumarmatta" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <span class="contact-sep">·</span>
-                    <a href="mailto:amankumarmatta@gmail.com">amankumarmatta@gmail.com</a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="footer-inner">
-            <span>© 2025 Aman Kumar Matta</span>
-            <span>Designed &amp; built by zen0x</span>
         </div>
+    </section>
+
+    <hr>
+
+    <!-- Work -->
+    <section id="work">
+        <h2>Selected Work</h2>
+        <p class="section-sub">Games &amp; interactive experiences built with Unity</p>
+
+        <div class="project">
+            <p class="project-title">Obstacle Course</p>
+            <p class="project-desc">A Unity-based obstacle course game with various challenging levels and mechanics. Features progressive difficulty and responsive controls.</p>
+            <div class="project-links">
+                <a href="https://github.com/amankumarmatta/Obstacle-Course" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="/Builds/Obstacle-Course" target="_blank">Play ↗</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <p class="project-title">Flappy Bird</p>
+            <p class="project-desc">A Flappy Bird clone built in Unity with smooth gameplay, a scoring system, and procedural obstacle generation.</p>
+            <div class="project-links">
+                <a href="https://github.com/amankumarmatta/Flappy-Bird" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="/Builds/Flappy-Bird" target="_blank">Play ↗</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <p class="project-title">Daadi</p>
+            <p class="project-desc">A 2D traditional board game built in Unity with Photon PUN2 for real-time multiplayer. 2-player turn-based strategy.</p>
+            <div class="project-links">
+                <a href="https://github.com/amankumarmatta/Daadi" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <p class="project-title">Hero Hurdles</p>
+            <p class="project-desc">A 2D platformer in Unity. Navigate challenging levels, jump over obstacles, and avoid traps to guide the hero to victory.</p>
+            <div class="project-links">
+                <a href="https://github.com/amankumarmatta/Hero-Hurdles" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="/Builds/Hero-Hurdles" target="_blank">Play ↗</a>
+            </div>
+        </div>
+
+        <div class="project">
+            <p class="project-title">Traffic Escape</p>
+            <p class="project-desc">A 2D tap-based puzzle game in Unity. Tap cars by their direction arrows to clear the traffic jam — tests timing and quick thinking.</p>
+            <div class="project-links">
+                <a href="https://github.com/amankumarmatta/Traffic-Escape" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="/Builds/Traffic-Escape" target="_blank">Play ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="about-p">I'm a passionate Unity Developer with expertise in creating immersive gaming experiences. With a strong foundation in game development and a keen eye for detail, I specialize in building engaging and interactive games that captivate players.</p>
+        <p class="about-p">My passion for creating virtual worlds sparked a professional career focused on delivering high-quality gaming experiences. From XR development to multiplayer systems, I've worked across diverse platforms to bring innovative game concepts to life.</p>
+
+        <div class="skills">
+            <div class="skill-group">
+                <h4>Game Development</h4>
+                <ul>
+                    <li>Unity Engine</li>
+                    <li>C# Programming</li>
+                    <li>Game Design</li>
+                    <li>Physics &amp; Collision</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h4>Extended Reality</h4>
+                <ul>
+                    <li>VR Development</li>
+                    <li>AR Development</li>
+                    <li>Meta Quest 2 / 3</li>
+                    <li>OpenXR</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h4>Tools &amp; Tech</h4>
+                <ul>
+                    <li>Photon PUN 2</li>
+                    <li>Python</li>
+                    <li>Git</li>
+                    <li>Blender</li>
+                    <li>Visual Studio</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <p class="section-sub">&nbsp;</p>
+
+        <div class="exp">
+            <p class="exp-meta">Apr 2025 — Present · Current</p>
+            <p class="exp-role">Unity XR Developer</p>
+            <p class="exp-company">AllReal (Machenn)</p>
+            <ul>
+                <li>Developing immersive XR experiences for enterprise and consumer applications</li>
+                <li>Optimizing performance for cross-platform XR deployment</li>
+            </ul>
+        </div>
+
+        <div class="exp">
+            <p class="exp-meta">Oct 2024 — Apr 2025 · 6 months</p>
+            <p class="exp-role">Unity 3D Developer</p>
+            <p class="exp-company">Brahman Studios</p>
+            <ul>
+                <li>3D space management within Unity for a cross-platform MMORPG</li>
+                <li>Implemented multi-input support enhancing accessibility across platforms</li>
+                <li>Contributed to networking solutions for smooth cross-platform connectivity</li>
+                <li>Debugging, troubleshooting, and maintaining an existing codebase</li>
+            </ul>
+        </div>
+
+        <div class="exp">
+            <p class="exp-meta">Jan 2024 — Oct 2024 · 9 months</p>
+            <p class="exp-role">Unity XR Developer</p>
+            <p class="exp-company">Kaala Labs</p>
+            <ul>
+                <li>Developed and optimized immersive VR experiences for Meta Quest 2 and Quest 3</li>
+                <li>Implemented AR features using Unity's AR Foundation for cross-platform deployment</li>
+                <li>Collaborated with cross-functional teams to design and deploy XR applications</li>
+            </ul>
+        </div>
+
+        <div class="exp">
+            <p class="exp-meta">Aug 2022 — Feb 2023 · 6 months</p>
+            <p class="exp-role">Game Programmer Intern</p>
+            <p class="exp-company">Gameshastra Solutions</p>
+            <ul>
+                <li>Proficiency in writing optimized code focusing on performance and scalability</li>
+                <li>Used scriptable objects to streamline game logic and maintainability</li>
+                <li>Applied Photon Unity Networking (PUN 2) for multiplayer functionality</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Let's build<br>something great.</h2>
+        <p>Available for full-time roles and freelance projects. Open to XR, game dev, and interactive experiences.</p>
+        <a href="mailto:amankumarmatta@gmail.com" class="contact-email">amankumarmatta@gmail.com →</a>
+        <div class="contact-socials">
+            <a href="https://github.com/amankumarmatta" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://linkedin.com/in/amankumarmatta" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+        <a href="docs/Game Dev.pdf" download class="resume-link">Download Resume ↗</a>
+    </section>
+
+    <footer>
+        <span>© 2025 Aman Kumar Matta</span>
+        <span>zen0x</span>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
