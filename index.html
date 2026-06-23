@@ -3,406 +3,986 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Kumar Matta</title>
+    <title>Aman Kumar Matta | Unity Game Developer</title>
+    <meta name="description" content="Portfolio of Aman Kumar Matta, a Unity developer experienced in gameplay, XR, and multiplayer development.">
+    <meta name="theme-color" content="#f5f1ea">
+    <meta property="og:title" content="Aman Kumar Matta | Unity Game Developer">
+    <meta property="og:description" content="Unity developer experienced in gameplay, XR, and multiplayer development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zen0x.vercel.app/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Aman Kumar Matta | Unity Game Developer">
+    <meta name="twitter:description" content="Unity developer experienced in gameplay, XR, and multiplayer development.">
+    <link rel="canonical" href="https://zen0x.vercel.app/">
     <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add("js");</script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #f6f0e7;
+            --bg-2: #ece3d5;
+            --panel: rgba(255, 251, 244, 0.62);
+            --text: #171412;
+            --muted: #6c645b;
+            --line: rgba(23, 20, 18, 0.1);
+            --line-strong: rgba(23, 20, 18, 0.18);
+            --accent: #171412;
+            --accent-2: #b86c4d;
+            --accent-3: #efe1d7;
+            --max: 1440px;
+            --gutter: 40px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: Georgia, serif;
-            background: #fff;
-            color: #000;
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 480px;
+            min-height: 100vh;
+            font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 14% 10%, rgba(184, 108, 77, 0.1), transparent 26%),
+                radial-gradient(circle at 82% 14%, rgba(255, 255, 255, 0.52), transparent 20%),
+                radial-gradient(circle at 86% 84%, rgba(184, 108, 77, 0.07), transparent 22%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(23, 23, 23, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(23, 23, 23, 0.03) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 92%);
+            -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 92%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 9rem;
+            right: min(8vw, 6rem);
+            width: 30rem;
+            height: 30rem;
+            border-radius: 50%;
+            pointer-events: none;
+            background:
+                radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(184, 108, 77, 0.12) 42%, transparent 68%);
+            filter: blur(16px);
+            opacity: 0.9;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--text);
+            outline-offset: 5px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 10;
+            padding: 10px 14px;
+            color: var(--bg);
+            background: var(--text);
+            transform: translateY(-160%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            width: min(var(--max), calc(100% - 64px));
             margin: 0 auto;
-            padding: 24px 20px;
+            padding: 24px 0 48px;
         }
 
-        a { color: #000; }
-        a:hover { text-decoration: none; }
-
-        hr {
-            border: none;
-            border-top: 1px solid #000;
-            margin: 32px 0;
+        .topbar,
+        .band,
+        .footer {
+            border-top: 1px solid var(--line-strong);
         }
 
-        /* Nav */
-        nav {
+        .topbar {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 48px;
+            align-items: center;
+            gap: 32px;
+            padding: 18px 0 22px;
+            position: relative;
         }
 
-        .nav-name {
-            font-size: 14px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .nav-links a {
-            font-size: 13px;
-            text-decoration: none;
-            margin-left: 16px;
-        }
-
-        /* Hero */
-        .hero { margin-bottom: 48px; }
-
-        .hero-tag {
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        .hero p {
-            font-size: 15px;
-            margin-bottom: 24px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 24px;
-        }
-
-        .stat span {
-            display: block;
-        }
-
-        .stat-n {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .stat-l {
-            font-size: 12px;
-        }
-
-        /* Sections */
-        h2 {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .section-sub {
-            font-size: 13px;
-            margin-bottom: 24px;
-        }
-
-        /* Projects */
-        .project { margin-bottom: 28px; }
-
-        .project-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .project-desc {
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .project-links a {
-            font-size: 13px;
-            margin-right: 12px;
-            text-decoration: none;
-            border-bottom: 1px solid #000;
-        }
-
-        /* About */
-        .about-p { font-size: 14px; margin-bottom: 12px; }
-
-        .skills { margin-top: 20px; }
-
-        .skill-group { margin-bottom: 16px; }
-
-        .skill-group h4 {
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 4px;
+        .brand {
+            font-size: 0.94rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            justify-self: start;
         }
 
-        .skill-group ul {
-            list-style: none;
+        .brand::after {
+            content: ".";
+            color: var(--accent-2);
+        }
+
+        .nav,
+        .hero-actions,
+        .project-links,
+        .contact-links,
+        .meta-row,
+        .tool-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 14px;
+            align-items: center;
         }
 
-        .skill-group li {
-            font-size: 13px;
+        .nav {
+            justify-content: flex-end;
+            gap: 26px;
         }
 
-        .skill-group li::after { content: ' ·'; }
-        .skill-group li:last-child::after { content: ''; }
-
-        /* Experience */
-        .exp { margin-bottom: 24px; }
-
-        .exp-meta {
-            font-size: 12px;
-            margin-bottom: 4px;
+        .nav a,
+        .text-link {
+            color: var(--muted);
+            transition: color 160ms ease;
         }
 
-        .exp-role {
-            font-size: 16px;
-            font-weight: bold;
+        .nav a:hover,
+        .text-link:hover {
+            color: var(--text);
         }
 
-        .exp-company {
-            font-size: 14px;
-            margin-bottom: 8px;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 20px;
+            border: 1px solid var(--line-strong);
+            border-radius: 999px;
+            font-size: 0.94rem;
+            font-weight: 600;
+            transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
         }
 
-        .exp ul {
-            list-style: disc;
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-primary {
+            background: var(--accent);
+            border-color: transparent;
+            color: #f5f1ea;
+        }
+
+        .button-secondary {
+            background: transparent;
+        }
+
+        .button-secondary:hover {
+            background: rgba(255, 255, 255, 0.32);
+            border-color: rgba(23, 20, 18, 0.28);
+        }
+
+        .hero {
+            padding: 44px 0 88px;
+        }
+
+        .eyebrow,
+        .section-label,
+        .meta-label {
+            display: inline-block;
+            color: var(--muted);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow,
+        .section-label {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .eyebrow::before,
+        .section-label::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 10px;
+            height: 1px;
+            background: var(--accent-2);
+        }
+
+        h1 {
+            font-size: clamp(3.8rem, 7vw, 7.2rem);
+            line-height: 0.92;
+            letter-spacing: -0.07em;
+            margin-bottom: 12px;
+            max-width: 11ch;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 28px;
+            align-items: end;
+            min-height: calc(100vh - 208px);
+        }
+
+        .hero-grid > .eyebrow {
+            grid-column: 1 / span 2;
+            align-self: start;
+            padding-top: 12px;
+        }
+
+        .hero-main {
+            grid-column: 3 / span 7;
+            display: grid;
+            align-content: end;
+            min-height: 100%;
+        }
+
+        .hero-intro {
+            display: grid;
+            gap: 20px;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .hero-kicker::before {
+            content: "";
+            width: 32px;
+            height: 1px;
+            background: var(--accent-2);
+        }
+
+        .hero-side {
+            grid-column: 10 / -1;
+            display: grid;
+            gap: 22px;
+            align-content: end;
+            min-height: 100%;
+            padding-bottom: 10px;
+        }
+
+        .hero-panel {
+            display: grid;
+            gap: 12px;
+            padding: 18px 0 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .hero-panel p {
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 28ch;
+        }
+
+        .lead {
+            max-width: 33rem;
+            font-size: clamp(1.08rem, 1.55vw, 1.28rem);
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            margin: 10px 0 6px;
+        }
+
+        .meta-row {
+            gap: 10px;
+        }
+
+        .meta-row span,
+        .tool-row span {
+            padding: 8px 0;
+            color: var(--text);
+            font-size: 0.92rem;
+            white-space: nowrap;
+        }
+
+        .hero-facts {
+            display: grid;
+            gap: 20px;
+        }
+
+        .hero-fact {
+            display: grid;
+            gap: 8px;
+        }
+
+        .hero-fact strong {
+            font-size: 1.7rem;
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            font-weight: 700;
+        }
+
+        .hero-fact span {
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .meta-row span::after,
+        .tool-row span::after {
+            content: "/";
+            margin-left: 10px;
+            color: var(--muted);
+        }
+
+        .meta-row span:last-child::after,
+        .tool-row span:last-child::after {
+            content: "";
+            margin: 0;
+        }
+
+        .project-copy p,
+        .about-copy p,
+        .contact-copy p,
+        .footer {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .band {
+            padding: 44px 0 52px;
+            position: relative;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 28px;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .section-head > :first-child {
+            grid-column: 1 / span 2;
+        }
+
+        .section-head > h2 {
+            grid-column: 3 / span 5;
+        }
+
+        .section-head > p {
+            grid-column: 8 / -1;
+        }
+
+        .section-head h2 {
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            line-height: 0.94;
+            letter-spacing: -0.05em;
+            max-width: 10ch;
+        }
+
+        .section-head p {
+            max-width: 30rem;
+        }
+
+        .project-list {
+            display: grid;
+            gap: 0;
+        }
+
+        .project-band {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 28px;
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            align-items: start;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        .project-band:hover {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+        }
+
+        .project-index {
+            grid-column: 1 / span 2;
+            color: var(--muted);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .project-copy {
+            grid-column: 3 / span 6;
+            display: grid;
+            gap: 16px;
+        }
+
+        .project-copy h3 {
+            font-size: clamp(1.9rem, 3vw, 3rem);
+            line-height: 0.94;
+            letter-spacing: -0.05em;
+        }
+
+        .project-links a:first-child,
+        .contact-links a:first-child {
+            color: var(--text);
+        }
+
+        .project-side {
+            grid-column: 9 / -1;
+            display: grid;
+            gap: 18px;
+            justify-items: start;
+            align-content: start;
+        }
+
+        .project-side .meta-label {
+            padding-top: 6px;
+        }
+
+        .tool-row {
+            gap: 0;
+        }
+
+        .project-metrics {
+            display: grid;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .project-metrics div {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding-top: 10px;
+            border-top: 1px solid var(--line);
+            font-size: 0.95rem;
+        }
+
+        .project-metrics dt {
+            color: var(--muted);
+        }
+
+        .project-metrics dd {
+            margin: 0;
+            text-align: right;
+        }
+
+        .expanse {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .expanse > .section-label {
+            grid-column: 1 / span 2;
+            padding-top: 9px;
+        }
+
+        .expanse-main {
+            grid-column: 3 / span 5;
+            display: grid;
+            gap: 18px;
+        }
+
+        .expanse-side {
+            grid-column: 8 / -1;
+            display: grid;
+            gap: 28px;
+            align-content: start;
+        }
+
+        .two-up {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .two-up > .section-label {
+            grid-column: 1 / span 2;
+            padding-top: 9px;
+        }
+
+        .two-up > :nth-child(2) {
+            grid-column: 3 / span 5;
+        }
+
+        .two-up > :last-child {
+            grid-column: 8 / -1;
+        }
+
+        .about-copy,
+        .contact-copy {
+            display: grid;
+            align-content: start;
+            gap: 16px;
+        }
+
+        .about-copy h2,
+        .contact-copy h2 {
+            max-width: 12ch;
+            font-size: clamp(2rem, 3vw, 3rem);
+            line-height: 0.96;
+            letter-spacing: -0.05em;
+        }
+
+        .capability-grid,
+        .experience-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .capability-item,
+        .experience-item {
+            display: grid;
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .capability-item:first-child,
+        .experience-item:first-child {
+            border-top-color: var(--line-strong);
+        }
+
+        .capability-item h3,
+        .experience-item h3 {
+            font-size: 1.08rem;
+            font-weight: 600;
+        }
+
+        .capability-item p,
+        .experience-item p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .experience-item span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        ul {
             padding-left: 18px;
         }
 
-        .exp li { font-size: 13px; margin-bottom: 2px; }
-
-        /* Contact */
-        .contact h2 { font-size: 28px; margin-bottom: 12px; }
-        .contact p { font-size: 14px; margin-bottom: 20px; }
-
-        .contact-email {
-            display: block;
-            font-size: 15px;
-            font-weight: bold;
-            margin-bottom: 16px;
+        li + li {
+            margin-top: 8px;
         }
 
-        .contact-socials a {
-            font-size: 14px;
-            margin-right: 16px;
-            text-decoration: none;
-            border-bottom: 1px solid #000;
-        }
-
-        .resume-link {
-            display: inline-block;
-            font-size: 14px;
-            border: 1px solid #000;
-            padding: 8px 16px;
-            text-decoration: none;
-            margin-top: 16px;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 48px;
-            font-size: 12px;
-            padding-top: 16px;
-            border-top: 1px solid #000;
+        .footer {
             display: flex;
             justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding: 20px 0 0;
+            margin-top: 36px;
+            font-size: 0.92rem;
+        }
+
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 500ms ease, transform 500ms ease;
+        }
+
+        .js .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 920px) {
+            .hero-grid,
+            .section-head,
+            .project-band,
+            .two-up,
+            .expanse {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-main,
+            .hero-side,
+            .hero-grid > .eyebrow,
+            .section-head > :first-child,
+            .section-head > h2,
+            .section-head > p,
+            .project-index,
+            .project-copy,
+            .project-side,
+            .expanse > .section-label,
+            .expanse-main,
+            .expanse-side,
+            .two-up > .section-label,
+            .two-up > :nth-child(2),
+            .two-up > :last-child {
+                grid-column: auto;
+            }
+
+            .hero-grid {
+                min-height: auto;
+                gap: 18px;
+            }
+
+            .hero-main,
+            .hero-side {
+                min-height: auto;
+            }
+
+            .project-band {
+                gap: 14px;
+            }
+
+            .hero-grid > .eyebrow,
+            .expanse > .section-label,
+            .two-up > .section-label {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: calc(100% - 32px);
+                padding-top: 14px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: space-between;
+                gap: 12px;
+            }
+
+            .hero {
+                padding: 28px 0 56px;
+            }
+
+            h1 {
+                font-size: clamp(3rem, 14vw, 4.7rem);
+            }
+
+            .band {
+                padding: 32px 0 38px;
+            }
+
+            .hero-actions {
+                gap: 10px;
+            }
+
+            body::after {
+                width: 18rem;
+                height: 18rem;
+                top: 7rem;
+                right: -4rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .js .reveal,
+            .js .reveal.is-visible {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
         }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="#" class="nav-name">zen0x</a>
-        <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero">
-        <p class="hero-tag">Unity Developer &amp; Game Enthusiast</p>
-        <h1>Aman Kumar Matta.</h1>
-        <p>Crafting immersive gaming experiences across VR, AR, and PC — focused on performance, player experience, and bringing bold ideas to life.</p>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-n">2+</span>
-                <span class="stat-l">Years Exp.</span>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main class="page" id="main-content">
+        <nav class="topbar reveal" aria-label="Primary navigation">
+            <a href="#top" class="brand">Aman Kumar Matta</a>
+            <div class="nav">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a class="text-link resume-link" href="docs/Game Dev.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </div>
-            <div class="stat">
-                <span class="stat-n">5+</span>
-                <span class="stat-l">Projects</span>
+        </nav>
+
+        <header class="hero reveal" id="top">
+            <div class="hero-grid">
+                <span class="eyebrow">Unity Developer</span>
+                <div class="hero-main">
+                    <div class="hero-intro">
+                        <p class="hero-kicker">Gameplay systems, XR interaction, and multiplayer development</p>
+                        <h1>Aman Kumar Matta</h1>
+                        <p class="lead">
+                            Unity developer building responsive gameplay and immersive applications with a focus on clean interaction, reliable systems, and production-ready implementation.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="Builds/Obstacle-Course/" target="_blank" rel="noopener noreferrer">Play Obstacle Course</a>
+                            <a class="button button-secondary" href="https://github.com/zen0x00" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="button button-secondary" href="mailto:amankumarmatta0@gmail.com">Email</a>
+                        </div>
+                        <div class="meta-row" aria-label="Primary focus areas">
+                            <span>India</span>
+                            <span>Unity + C#</span>
+                            <span>Gameplay</span>
+                            <span>XR</span>
+                            <span>Multiplayer</span>
+                        </div>
+                    </div>
+                </div>
+                <aside class="hero-side" aria-label="Professional snapshot">
+                    <div class="hero-panel">
+                        <span class="meta-label">Current Focus</span>
+                        <p>Professional Unity work across gameplay programming, XR development, and interactive application delivery.</p>
+                    </div>
+                    <div class="hero-facts">
+                        <div class="hero-fact">
+                            <strong>4 roles</strong>
+                            <span>Studio experience across games, XR, and product-oriented builds.</span>
+                        </div>
+                        <div class="hero-fact">
+                            <strong>2022-Now</strong>
+                            <span>Hands-on development across gameplay systems, interaction design, and deployment workflows.</span>
+                        </div>
+                    </div>
+                </aside>
             </div>
-            <div class="stat">
-                <span class="stat-n">3</span>
-                <span class="stat-l">XR Platforms</span>
+        </header>
+
+        <section class="band reveal" id="work" aria-labelledby="work-title">
+            <div class="section-head">
+                <span class="section-label">Selected Work</span>
+                <h2 id="work-title">Unity projects across gameplay, multiplayer, and immersive interaction.</h2>
+                <p>Recent work spanning responsive game feel, networked play, and XR application development.</p>
             </div>
-        </div>
-    </section>
+            <div class="project-list">
+                <article class="project-band">
+                    <div class="project-index">01</div>
+                    <div class="project-copy">
+                        <span class="meta-label">Playable Build</span>
+                        <h3>Obstacle Course</h3>
+                        <p>A focused 3D gameplay build centered on responsive movement, jump timing, collision handling, and a readable finish loop. It works well as a direct demonstration of core Unity gameplay implementation.</p>
+                        <div class="project-links">
+                            <a class="text-link" href="Builds/Obstacle-Course/" target="_blank" rel="noopener noreferrer">Launch build</a>
+                            <a class="text-link" href="https://github.com/amankumarmatta/Obstacle-Course" target="_blank" rel="noopener noreferrer">View source</a>
+                        </div>
+                    </div>
+                    <div class="project-side">
+                        <span class="meta-label">Project Notes</span>
+                        <div class="tool-row">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>Gameplay Tuning</span>
+                        </div>
+                        <dl class="project-metrics">
+                            <div>
+                                <dt>Focus</dt>
+                                <dd>Movement feel</dd>
+                            </div>
+                            <div>
+                                <dt>Output</dt>
+                                <dd>Playable WebGL build</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
 
-    <hr>
+                <article class="project-band">
+                    <div class="project-index">02</div>
+                    <div class="project-copy">
+                        <span class="meta-label">Multiplayer</span>
+                        <h3>Daadi</h3>
+                        <p>A networked adaptation of Nine Men's Morris built in Unity with Photon PUN 2. The work centers on two-player turn flow, board-state synchronization, and interaction logic that stays reliable across sessions.</p>
+                        <div class="project-links">
+                            <a class="text-link" href="https://github.com/amankumarmatta/Daadi" target="_blank" rel="noopener noreferrer">View source</a>
+                        </div>
+                    </div>
+                    <div class="project-side">
+                        <span class="meta-label">Project Notes</span>
+                        <div class="tool-row">
+                            <span>Photon PUN 2</span>
+                            <span>State Sync</span>
+                            <span>Turn Logic</span>
+                        </div>
+                        <dl class="project-metrics">
+                            <div>
+                                <dt>Focus</dt>
+                                <dd>Network gameplay</dd>
+                            </div>
+                            <div>
+                                <dt>Output</dt>
+                                <dd>Two-player experience</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
 
-    <!-- Work -->
-    <section id="work">
-        <h2>Selected Work</h2>
-        <p class="section-sub">Games &amp; interactive experiences built with Unity</p>
-
-        <div class="project">
-            <p class="project-title">Obstacle Course</p>
-            <p class="project-desc">A Unity-based obstacle course game with various challenging levels and mechanics. Features progressive difficulty and responsive controls.</p>
-            <div class="project-links">
-                <a href="https://github.com/amankumarmatta/Obstacle-Course" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                <a href="/Builds/Obstacle-Course" target="_blank">Play ↗</a>
+                <article class="project-band">
+                    <div class="project-index">03</div>
+                    <div class="project-copy">
+                        <span class="meta-label">Virtual Reality</span>
+                        <h3>Crime Scene Investigation VR</h3>
+                        <p>An immersive Unity VR experience designed around scene-based interaction and investigation flow. The project demonstrates practical XR development, environmental readability, and structured user interaction.</p>
+                        <div class="project-links">
+                            <a class="text-link" href="https://github.com/amankumarmatta/crime-scene-experience" target="_blank" rel="noopener noreferrer">View source</a>
+                        </div>
+                    </div>
+                    <div class="project-side">
+                        <span class="meta-label">Project Notes</span>
+                        <div class="tool-row">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>VR</span>
+                        </div>
+                        <dl class="project-metrics">
+                            <div>
+                                <dt>Focus</dt>
+                                <dd>XR interaction</dd>
+                            </div>
+                            <div>
+                                <dt>Output</dt>
+                                <dd>Immersive prototype</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="project">
-            <p class="project-title">Flappy Bird</p>
-            <p class="project-desc">A Flappy Bird clone built in Unity with smooth gameplay, a scoring system, and procedural obstacle generation.</p>
-            <div class="project-links">
-                <a href="https://github.com/amankumarmatta/Flappy-Bird" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                <a href="/Builds/Flappy-Bird" target="_blank">Play ↗</a>
+        <section class="band reveal" id="about" aria-labelledby="about-title">
+            <div class="expanse">
+                <span class="section-label">About</span>
+                <div class="expanse-main">
+                    <div class="about-copy">
+                        <h2 id="about-title">I build Unity work that is clear, responsive, and production-minded.</h2>
+                        <p>I work across gameplay, XR, and interactive product development in Unity. The common thread in my work is clarity: systems should be understandable, controls should respond cleanly, and the final experience should feel deliberate.</p>
+                    </div>
+                    <div class="about-copy">
+                        <span class="meta-label">Core stack</span>
+                        <div class="tool-row">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>Photon PUN 2</span>
+                            <span>AR Foundation</span>
+                            <span>OpenXR</span>
+                            <span>Unreal Engine</span>
+                            <span>C++</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="expanse-side">
+                    <div class="capability-grid" aria-label="Capabilities">
+                        <div class="capability-item">
+                            <h3>Gameplay Systems</h3>
+                            <p>Player controllers, interaction loops, camera behavior, state management, and tuning for cleaner feel.</p>
+                        </div>
+                        <div class="capability-item">
+                            <h3>XR Development</h3>
+                            <p>AR and VR implementation with a practical focus on interaction, spatial readability, and deployment stability.</p>
+                        </div>
+                        <div class="capability-item">
+                            <h3>Production Delivery</h3>
+                            <p>Version-controlled development, iterative debugging, and builds shaped for team workflows instead of demo-only output.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="project">
-            <p class="project-title">Daadi</p>
-            <p class="project-desc">A 2D traditional board game built in Unity with Photon PUN2 for real-time multiplayer. 2-player turn-based strategy.</p>
-            <div class="project-links">
-                <a href="https://github.com/amankumarmatta/Daadi" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <section class="band reveal" id="contact" aria-labelledby="contact-title">
+            <div class="two-up">
+                <span class="section-label">Contact</span>
+                <div class="contact-copy">
+                    <h2 id="contact-title">Available for strong Unity work across games, XR, and interactive applications.</h2>
+                    <p>I am open to roles and freelance work where implementation quality matters and the product needs more than a superficial prototype.</p>
+                    <div class="contact-links">
+                        <a class="text-link" href="mailto:amankumarmatta0@gmail.com">amankumarmatta0@gmail.com</a>
+                        <a class="text-link" href="https://linkedin.com/in/amankumarmatta" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a class="text-link" href="docs/Game Dev.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                    </div>
+                </div>
+
+                <div class="contact-copy">
+                    <span class="meta-label">Experience</span>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <h3>AllReal (Machenn)</h3>
+                            <span>Unity XR Developer · April 2025 to Present</span>
+                        </div>
+                        <div class="experience-item">
+                            <h3>Brahman Studios</h3>
+                            <span>Unity 3D Developer · October 2024 to March 2025</span>
+                        </div>
+                        <div class="experience-item">
+                            <h3>Kaala Labs</h3>
+                            <span>Unity XR Developer · January 2024 to September 2024</span>
+                        </div>
+                        <div class="experience-item">
+                            <h3>Gameshastra Solutions</h3>
+                            <span>Game Programmer in Unity · August 2022 to February 2023</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="project">
-            <p class="project-title">Hero Hurdles</p>
-            <p class="project-desc">A 2D platformer in Unity. Navigate challenging levels, jump over obstacles, and avoid traps to guide the hero to victory.</p>
-            <div class="project-links">
-                <a href="https://github.com/amankumarmatta/Hero-Hurdles" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                <a href="/Builds/Hero-Hurdles" target="_blank">Play ↗</a>
-            </div>
-        </div>
+        <footer class="footer reveal">
+            <span>&copy; <span id="year">2026</span> Aman Kumar Matta</span>
+            <a class="text-link" href="#top">Back to top</a>
+        </footer>
+    </main>
 
-        <div class="project">
-            <p class="project-title">Traffic Escape</p>
-            <p class="project-desc">A 2D tap-based puzzle game in Unity. Tap cars by their direction arrows to clear the traffic jam — tests timing and quick thinking.</p>
-            <div class="project-links">
-                <a href="https://github.com/amankumarmatta/Traffic-Escape" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                <a href="/Builds/Traffic-Escape" target="_blank">Play ↗</a>
-            </div>
-        </div>
-    </section>
+    <script>
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const revealItems = document.querySelectorAll(".reveal");
+        document.querySelector("#year").textContent = new Date().getFullYear();
 
-    <hr>
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+            revealItems.forEach((item) => item.classList.add("is-visible"));
+        } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
 
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p class="about-p">I'm a passionate Unity Developer with expertise in creating immersive gaming experiences. With a strong foundation in game development and a keen eye for detail, I specialize in building engaging and interactive games that captivate players.</p>
-        <p class="about-p">My passion for creating virtual worlds sparked a professional career focused on delivering high-quality gaming experiences. From XR development to multiplayer systems, I've worked across diverse platforms to bring innovative game concepts to life.</p>
-
-        <div class="skills">
-            <div class="skill-group">
-                <h4>Game Development</h4>
-                <ul>
-                    <li>Unity Engine</li>
-                    <li>C# Programming</li>
-                    <li>Game Design</li>
-                    <li>Physics &amp; Collision</li>
-                </ul>
-            </div>
-            <div class="skill-group">
-                <h4>Extended Reality</h4>
-                <ul>
-                    <li>VR Development</li>
-                    <li>AR Development</li>
-                    <li>Meta Quest 2 / 3</li>
-                    <li>OpenXR</li>
-                </ul>
-            </div>
-            <div class="skill-group">
-                <h4>Tools &amp; Tech</h4>
-                <ul>
-                    <li>Photon PUN 2</li>
-                    <li>Python</li>
-                    <li>Git</li>
-                    <li>Blender</li>
-                    <li>Visual Studio</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <!-- Experience -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <p class="section-sub">&nbsp;</p>
-
-        <div class="exp">
-            <p class="exp-meta">Apr 2025 — Present · Current</p>
-            <p class="exp-role">Unity XR Developer</p>
-            <p class="exp-company">AllReal (Machenn)</p>
-            <ul>
-                <li>Developing immersive XR experiences for enterprise and consumer applications</li>
-                <li>Optimizing performance for cross-platform XR deployment</li>
-            </ul>
-        </div>
-
-        <div class="exp">
-            <p class="exp-meta">Oct 2024 — Apr 2025 · 6 months</p>
-            <p class="exp-role">Unity 3D Developer</p>
-            <p class="exp-company">Brahman Studios</p>
-            <ul>
-                <li>3D space management within Unity for a cross-platform MMORPG</li>
-                <li>Implemented multi-input support enhancing accessibility across platforms</li>
-                <li>Contributed to networking solutions for smooth cross-platform connectivity</li>
-                <li>Debugging, troubleshooting, and maintaining an existing codebase</li>
-            </ul>
-        </div>
-
-        <div class="exp">
-            <p class="exp-meta">Jan 2024 — Oct 2024 · 9 months</p>
-            <p class="exp-role">Unity XR Developer</p>
-            <p class="exp-company">Kaala Labs</p>
-            <ul>
-                <li>Developed and optimized immersive VR experiences for Meta Quest 2 and Quest 3</li>
-                <li>Implemented AR features using Unity's AR Foundation for cross-platform deployment</li>
-                <li>Collaborated with cross-functional teams to design and deploy XR applications</li>
-            </ul>
-        </div>
-
-        <div class="exp">
-            <p class="exp-meta">Aug 2022 — Feb 2023 · 6 months</p>
-            <p class="exp-role">Game Programmer Intern</p>
-            <p class="exp-company">Gameshastra Solutions</p>
-            <ul>
-                <li>Proficiency in writing optimized code focusing on performance and scalability</li>
-                <li>Used scriptable objects to streamline game logic and maintainability</li>
-                <li>Applied Photon Unity Networking (PUN 2) for multiplayer functionality</li>
-            </ul>
-        </div>
-    </section>
-
-    <hr>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Let's build<br>something great.</h2>
-        <p>Available for full-time roles and freelance projects. Open to XR, game dev, and interactive experiences.</p>
-        <a href="mailto:amankumarmatta@gmail.com" class="contact-email">amankumarmatta@gmail.com →</a>
-        <div class="contact-socials">
-            <a href="https://github.com/amankumarmatta" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href="https://linkedin.com/in/amankumarmatta" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        </div>
-        <a href="docs/Game Dev.pdf" download class="resume-link">Download Resume ↗</a>
-    </section>
-
-    <footer>
-        <span>© 2025 Aman Kumar Matta</span>
-        <span>zen0x</span>
-    </footer>
-
+            revealItems.forEach((item) => observer.observe(item));
+        }
+    </script>
 </body>
 </html>
