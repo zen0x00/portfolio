@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" onload="window.__THREE_LOADED_ONCE__=true"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  body { margin:0; background:#0a0c0e; }
+  ::selection { background:#ff7a3d; color:#0a0c0e; }
+  @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  .scanline::after { content:""; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px); }
+</style>
+</helmet>
+
+<div style="background:#0a0c0e; color:#e8e6e1; font-family:'Space Grotesk',sans-serif; min-height:100vh; overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <div style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:22px 48px; backdrop-filter:blur(8px); background:rgba(10,12,14,0.6); border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:14px; color:#ff7a3d; letter-spacing:0.5px;">akm@systems<span style="animation:blink 1s step-end infinite;">_</span></div>
+    <div style="display:flex; gap:32px; font-family:'JetBrains Mono',monospace; font-size:13px; color:#8b9198;">
+      <a href="#work" style="color:#8b9198; text-decoration:none;" style-hover="color:#e8e6e1">01_work</a>
+      <a href="#about" style="color:#8b9198; text-decoration:none;" style-hover="color:#e8e6e1">02_about</a>
+      <a href="#stack" style="color:#8b9198; text-decoration:none;" style-hover="color:#e8e6e1">03_stack</a>
+      <a href="#contact" style="color:#8b9198; text-decoration:none;" style-hover="color:#e8e6e1">04_contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative; height:100vh; display:flex; align-items:center; overflow:hidden;" class="scanline">
+    <canvas ref="{{ canvasRef }}" width="1600" height="900" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.55;"></canvas>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,12,14,0) 0%, rgba(10,12,14,0.4) 70%, #0a0c0e 100%);"></div>
+    <div ref="{{ heroRef }}" style="position:relative; z-index:2; padding:0 48px; max-width:1100px; opacity:0;">
+      <div style="font-family:'JetBrains Mono',monospace; color:#ff7a3d; font-size:14px; letter-spacing:2px; margin-bottom:20px; text-transform:uppercase;">// systems software engineer</div>
+      <h1 style="font-size:clamp(48px,7vw,80px); line-height:0.98; margin:0 0 22px; font-weight:700; letter-spacing:-2px;">Aman Kumar<br/>Matta</h1>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:16px; color:#8b9198; max-width:640px; line-height:1.65; margin:0;">Building low-level, memory-safe systems in Rust on Linux. Formerly shipping real-time simulation in Unity/C++ — now pushing that performance discipline into kernels, schedulers, and the network stack.</p>
+      <div style="display:flex; gap:16px; margin-top:32px;">
+        <a href="#work" style="font-family:'JetBrains Mono',monospace; font-size:13px; padding:14px 26px; background:#ff7a3d; color:#0a0c0e; text-decoration:none; font-weight:700; letter-spacing:0.5px;" style-hover="background:#ff9660">VIEW WORK →</a>
+        <a href="https://github.com/rxyenv" target="_blank" style="font-family:'JetBrains Mono',monospace; font-size:13px; padding:14px 26px; border:1px solid rgba(255,255,255,0.15); color:#e8e6e1; text-decoration:none;" style-hover="border-color:#ff7a3d; color:#ff7a3d">GITHUB</a>
+      </div>
+    </div>
+    <div style="position:absolute; bottom:16px; left:48px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#4a4f55; z-index:2;">scroll to explore ↓</div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about" style="padding:160px 48px; max-width:1100px; margin:0 auto; border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="reveal" style="font-family:'JetBrains Mono',monospace; color:#ff7a3d; font-size:13px; letter-spacing:2px; margin-bottom:24px;">02 / ABOUT</div>
+    <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:80px; align-items:start;">
+      <p class="reveal" style="font-size:32px; line-height:1.4; font-weight:500; margin:0; letter-spacing:-0.5px;">I spent years optimizing frame budgets and memory layouts inside game engines. Now I apply that same obsession with performance and correctness to <span style="color:#ff7a3d;">Rust</span> and the <span style="color:#ff7a3d;">Linux</span> kernel/userspace boundary.</p>
+      <div class="reveal" style="font-family:'JetBrains Mono',monospace; font-size:14px; color:#8b9198; line-height:2;">
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.08); padding:10px 0;"><span>background</span><span style="color:#e8e6e1;">Unity / C++ game dev</span></div>
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.08); padding:10px 0;"><span>focus</span><span style="color:#e8e6e1;">Rust, Linux internals</span></div>
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.08); padding:10px 0;"><span>interests</span><span style="color:#e8e6e1;">concurrency, perf, tooling</span></div>
+        <div style="display:flex; justify-content:space-between; padding:10px 0;"><span>status</span><span style="color:#4ade80;">open to systems roles</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <div id="work" style="padding:0 48px 160px; max-width:1100px; margin:0 auto;">
+    <div class="reveal" style="font-family:'JetBrains Mono',monospace; color:#ff7a3d; font-size:13px; letter-spacing:2px; margin-bottom:48px;">01 / SELECTED WORK</div>
+    <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+      <div class="reveal" style="display:grid; grid-template-columns:80px 1fr auto; gap:32px; align-items:start; padding:36px 0; border-top:1px solid rgba(255,255,255,0.08);" style-hover="background:rgba(255,255,255,0.02)">
+        <div style="font-family:'JetBrains Mono',monospace; color:#4a4f55; font-size:14px; padding-top:4px;">{{ p.index }}</div>
+        <div>
+          <h3 style="font-size:26px; margin:0 0 10px; font-weight:600;">{{ p.name }}</h3>
+          <p style="font-family:'JetBrains Mono',monospace; font-size:14px; color:#8b9198; line-height:1.7; margin:0 0 14px; max-width:600px;">{{ p.desc }}</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="3">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,122,61,0.3); color:#ff7a3d; letter-spacing:0.5px;">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#4a4f55; padding-top:4px; white-space:nowrap;">{{ p.status }}</div>
+      </div>
+    </sc-for>
+    <p style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#4a4f55; margin-top:24px;">// placeholder projects — swap in real repos as they ship</p>
+  </div>
+
+  <!-- STACK -->
+  <div id="stack" style="padding:0 48px 160px; max-width:1100px; margin:0 auto;">
+    <div class="reveal" style="font-family:'JetBrains Mono',monospace; color:#ff7a3d; font-size:13px; letter-spacing:2px; margin-bottom:48px;">03 / STACK</div>
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.08);">
+      <sc-for list="{{ stack }}" as="s" hint-placeholder-count="8">
+        <div style="background:#0a0c0e; padding:28px 24px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#4a4f55; margin-bottom:8px; letter-spacing:1px;">{{ s.cat }}</div>
+          <div style="font-size:18px; font-weight:500;">{{ s.name }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" style="padding:120px 48px 100px; max-width:1100px; margin:0 auto; border-top:1px solid rgba(255,255,255,0.06); text-align:center;">
+    <div class="reveal" style="font-family:'JetBrains Mono',monospace; color:#ff7a3d; font-size:13px; letter-spacing:2px; margin-bottom:32px;">04 / CONTACT</div>
+    <h2 class="reveal" style="font-size:56px; margin:0 0 40px; font-weight:700; letter-spacing:-1.5px;">Let's build something<br/>that doesn't segfault.</h2>
+    <div class="reveal" style="display:flex; gap:24px; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:15px;">
+      <a href="https://github.com/rxyenv" target="_blank" style="color:#e8e6e1; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:4px;" style-hover="color:#ff7a3d; border-color:#ff7a3d">github.com/rxyenv</a>
+      <a href="https://www.linkedin.com/in/amankumarmatta/" target="_blank" style="color:#e8e6e1; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:4px;" style-hover="color:#ff7a3d; border-color:#ff7a3d">linkedin/amankumarmatta</a>
+    </div>
+    <div style="margin-top:100px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#4a4f55;">© 2026 Aman Kumar Matta — built with Rust in mind, shipped in HTML.</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  canvasRef = { current: null };
+  heroRef = { current: null };
+  setCanvasRef = (el) => { this.canvasRef.current = el; };
+  setHeroRef = (el) => { this.heroRef.current = el; };
+
+  componentDidMount() {
+    this.initThree();
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.fromTo(this.heroRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out', delay: 0.2 });
+      document.querySelectorAll('.reveal').forEach((el) => {
+        gsap.fromTo(el, { opacity: 0, y: 40 }, {
+          opacity: 1, y: 0, duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' }
+        });
+      });
+    }
+  }
+
+  initThree() {
+    const canvas = this.canvasRef.current;
+    if (!canvas || !window.THREE) return;
+    const THREE = window.THREE;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.set(0, 0, 22);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    const resize = () => {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const geo = new THREE.IcosahedronGeometry(8, 1);
+    const wire = new THREE.WireframeGeometry(geo);
+    const mat = new THREE.LineBasicMaterial({ color: 0xff7a3d, transparent: true, opacity: 0.35 });
+    const lines = new THREE.LineSegments(wire, mat);
+    group.add(lines);
+
+    const pGeo = new THREE.BufferGeometry();
+    const count = 600;
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) positions[i] = (Math.random() - 0.5) * 60;
+    pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const pMat = new THREE.PointsMaterial({ color: 0x8b9198, size: 0.09, transparent: true, opacity: 0.5 });
+    const points = new THREE.Points(pGeo, pMat);
+    scene.add(points);
+
+    const mouse = { x: 0, y: 0 };
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    let raf;
+    const animate = () => {
+      raf = requestAnimationFrame(animate);
+      group.rotation.y += 0.0015;
+      group.rotation.x += 0.0006;
+      points.rotation.y -= 0.0004;
+      camera.position.x += (mouse.x * 3 - camera.position.x) * 0.02;
+      camera.position.y += (-mouse.y * 3 - camera.position.y) * 0.02;
+      camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+    };
+    animate();
+    this._cleanup = () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
+  }
+
+  componentWillUnmount() {
+    if (this._cleanup) this._cleanup();
+  }
+
+  renderVals() {
+    const projects = [
+      { name: 'rustlock — lock-free ring buffer', desc: 'SPSC/MPMC ring buffer for high-throughput IPC, built to replace a mutex-heavy queue from a past Unity-era pipeline.', tags: ['rust', 'concurrency', 'no_std'], status: 'in progress', index: '01' },
+      { name: 'schedwatch — Linux scheduler tracer', desc: 'eBPF + Rust tool for visualizing CFS scheduling latency and run-queue contention on live systems.', tags: ['rust', 'ebpf', 'linux'], status: 'in progress', index: '02' },
+      { name: 'netfold — async reverse proxy', desc: 'Tokio-based L4/L7 proxy exploring zero-copy buffers and structured concurrency under load.', tags: ['rust', 'tokio', 'networking'], status: 'planned', index: '03' },
+      { name: 'ecs-rs — data-oriented ECS', desc: 'Archetype-based entity-component-system in Rust, carrying cache-friendly layout lessons over from Unity DOTS.', tags: ['rust', 'ecs', 'performance'], status: 'planned', index: '04' },
+    ].map((p, i) => ({ ...p, index: String(i + 1).padStart(2, '0') }));
+
+    const stack = [
+      { cat: 'LANGUAGE', name: 'Rust' },
+      { cat: 'OS', name: 'Linux' },
+      { cat: 'CONCURRENCY', name: 'Tokio / async' },
+      { cat: 'SYSTEMS', name: 'eBPF' },
+      { cat: 'PAST LIFE', name: 'C++ / Unity' },
+      { cat: 'TOOLING', name: 'CLI / TUI' },
+      { cat: 'NETWORKING', name: 'TCP/UDP internals' },
+      { cat: 'VERSION CTRL', name: 'Git' },
+    ];
+
+    return { projects, stack, canvasRef: this.setCanvasRef, heroRef: this.setHeroRef };
+  }
+}
+
+</script>
+</body>
+</html>
