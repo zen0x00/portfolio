@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects, stack } from '../data/portfolio';
+
+const title = 'Aman Kumar Matta';
+const description = 'Systems software engineer building low-level, memory-safe software in Rust on Linux.';
+---
+<BaseLayout {title} {description}>
+  <div class="page-shell">
+    <header class="navigation">
+      <a class="navigation-title" href="#home">amankumarmatta</a>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#work">Projects</a><a href="#stack">Stack</a><a href="#contact">Contact me</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="home" aria-labelledby="home-title">
+        <div class="avatar"><img src="/pfp.JPEG" alt="Aman Kumar Matta" width="800" height="800" loading="eager" decoding="async" /></div>
+        <h1 id="home-title">Aman Kumar Matta</h1>
+        <p class="profession">Systems Software Engineer<br />Rust · Linux · Performance</p>
+        <div class="social-links" aria-label="Social profiles">
+          <a href="https://github.com/rxyenv" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.04 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.74-1.55-2.57-.29-5.27-1.29-5.27-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/amankumarmatta/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.04H3.54V8.98H7.1v11.47Z"/></svg>
+          </a>
+        </div>
+        <a class="scroll-link" href="#about">More about me ↓</a>
+      </section>
+
+      <section id="about" class="content-section">
+        <h2>About</h2>
+        <p class="lead">I spent years optimizing frame budgets and memory layouts inside game engines. Now I apply that same obsession with performance and correctness to Rust and the Linux kernel/userspace boundary.</p>
+        <dl class="facts">
+          <div><dt>Background</dt><dd>Unity / C++ game development</dd></div>
+          <div><dt>Focus</dt><dd>Rust and Linux internals</dd></div>
+          <div><dt>Interests</dt><dd>Concurrency, performance, tooling</dd></div>
+          <div><dt>Status</dt><dd>Open to systems roles</dd></div>
+        </dl>
+      </section>
+
+      <section id="work" class="content-section">
+        <h2>Projects</h2>
+        {projects.length > 0 ? (
+          <div class="project-list">
+            {projects.map((project) => (
+              <article>
+                <div class="project-heading"><h3>{project.title}</h3><span>{project.status}</span></div>
+                <p>{project.description}</p>
+                <ul>{project.tags.map((tag) => <li>{tag}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div class="empty-projects">
+            <p>No public projects yet.</p>
+            <span>I’m currently building my systems portfolio. Work will appear here as it ships.</span>
+          </div>
+        )}
+      </section>
+
+      <section id="stack" class="content-section">
+        <h2>Stack</h2>
+        <div class="stack-grid">
+          {stack.map(([category, name]) => <div><span>{category}</span><strong>{name}</strong></div>)}
+        </div>
+      </section>
+
+      <section id="contact" class="content-section contact">
+        <h2>Contact me</h2>
+        <p class="lead">Let’s build something that doesn’t segfault.</p>
+        <p><a href="https://github.com/rxyenv" target="_blank" rel="noreferrer">github.com/rxyenv</a><br /><a href="https://www.linkedin.com/in/amankumarmatta/" target="_blank" rel="noreferrer">linkedin.com/in/amankumarmatta</a></p>
+      </section>
+    </main>
+
+    <footer>© 2026 Aman Kumar Matta · Design adapted from <a href="https://github.com/luizdepra/hugo-coder" target="_blank" rel="noreferrer">Hugo Coder</a>.</footer>
+  </div>
+  <button class="theme-toggle" type="button" aria-label="Toggle color theme">◐</button>
+</BaseLayout>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'light') document.documentElement.classList.add('light');
+  button?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('light');
+    localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+  });
+</script>

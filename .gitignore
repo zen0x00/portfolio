@@ -1,4 +1,6 @@
 .claude/
 node_modules/
 dist/
+.astro/
+.pnpm-store/
 .DS_Store
